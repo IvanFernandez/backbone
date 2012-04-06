@@ -65,7 +65,7 @@ function get_tweets() {
 
 setInterval(get_tweets, 1000);
 
-
+var port = process.env.PORT || 3000;
 http.createServer(function(request, response) {
     // response.header("Access-Control-Allow-Origin", "*");
     // response.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -116,6 +116,6 @@ http.createServer(function(request, response) {
     } else {
         load_static_file(uri, response);
     }
-}).listen(8080);
+}).listen(port);
 
-sys.puts("Server running at http://localhost:8080/");
+sys.puts("Server running at http://localhost:" + port);
