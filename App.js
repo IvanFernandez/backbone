@@ -10,9 +10,12 @@
 
 	//TODO: interfaz sencillita para que en vez de a Obama se pueda buscar cualquier persona.
 	var Tweets = Backbone.Collection.extend({
-		//url: 'http://search.twitter.com/search.json?q=twitter&callback=?',
-		url: '/otro',
+		model: Tweet,
+		url: 'http://search.twitter.com/search.json?q=twitter&callback=?',
+		//url: '/otro',
 		parse: function(response) {
+			console.log("collection");
+			console.log(response.results);
 			return response.results;
 		}
 	});
@@ -25,9 +28,11 @@
 		},
 		initialize: function() {
 			_.bindAll(this, 'render', 'addItem', 'appendItem');
+			//this.tweets = new Tweets();
+			//this.tweets.fetch();
+			//this.tweets.bind('add', this.appendItem); // collection event binder
 			this.tweets = new Tweets();
-			this.tweets.fetch();
-			this.tweets.bind('add', this.appendItem); // collection event binder
+
 			this.counter = 0;
 			this.render();
 		},
@@ -39,6 +44,36 @@
 			return this;
 		},
 		addItem: function(item) {
+			console.log('addItem');
+			var subject = $('#search').val() || 'twitter';
+			this.tweets.url = 'http://search.twitter.com/search.json?q=' + subject + '&callback=?';
+			//var tts = this.tweets.fetch().models;
+			//tweets.url = 'http://search.twitter.com/search.json?q=madrid&callback=?'
+			this.tweets.bind('reset', function(collection) {
+				console.log(collection.length);
+   				alert(collection.length);
+			});
+			//console.log("aaaaaaaaaa : " + tts);
+			//console.log("ssssssssss : " + tts[this.counter].attributes.text);
+			
+
+			var item;
+			$.each(this.tweets.fetch().models, function(index, tweet) { 
+  				//console.log("each : " + tweet);
+  				console.log(tweet.attributes.text);
+  				item = new Tweet();
+				item.set({
+					order: this.counter,
+					info: tweet.attributes.text// modify item defaults
+				});
+				$('ul', this.el).append("<li>" + item.get('order') + " " + item.get('info') + "</li>");
+				//this.proxy(tweets.add(item));
+				//console.log("item : " + item);
+				this.counter++;
+			});
+			//this.tweets.add(item);
+
+
 			// doing ...
 
 			/*var r = function checkEventIDClass(id) {
@@ -59,10 +94,10 @@
 				}
 			var rr = r();
 			alert(JSON.stringify(rr));
-			$(this.el).append(JSON.stringify(rr));
+			$(this.el).append(JSON.stringify(rr));*/
 
 
-			var r = function checkEventIDClass2(id) {
+			/*var r = function checkEventIDClass2(id) {
 					var my_temp_var;
 					$.ajax({
 						url: 'http://localhost:8080/stream',
@@ -90,7 +125,7 @@
 			});*/
 
 
-			var tweet_list = $("#tweets");
+			/*var tweet_list = $("#tweets");
 
 			function load_tweets() {
 				$.getJSON("http://localhost:8080/stream", function(tweets) {
@@ -102,7 +137,7 @@
 				});
 			}
 
-			setTimeout(load_tweets, 3000);
+			setTimeout(load_tweets, 3000);*/
 
 
 
@@ -122,7 +157,7 @@
 			$(this.el).append("" +JSON.stringify(res));*/
 
 
-			var tweets = this.tweets.fetch().models;
+			/*var tweets = this.tweets.fetch().models;
 			var item = new Tweet();
 			item.set({
 				order: this.counter,
@@ -131,7 +166,7 @@
 			});
 			console.log(item.get('info'));
 			//this.counter++;
-			this.tweets.add(item);
+			this.tweets.add(item);*/
 		},
 
 		appendItem: function(item) {
