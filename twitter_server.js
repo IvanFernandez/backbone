@@ -98,16 +98,21 @@ http.createServer(function(request, response) {
             });
         }, 10000);
 
-    } else if (uri === "/otro") {
+    } else if (uri === "/twitter") {
         console.log("petición a otro ...");
-        response.writeHead(200, {
+        fs.readFile('index.html',function (err, data){
+            response.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
+            response.write(data);
+            response.end();
+        });
+        /*response.writeHead(200, {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
             'Access-Control-Allow-Headers': 'Content-Type',
             'content-type': 'text/plain'
         });
         response.write("otra cosa");
-        response.end();
+        response.end();*/
     } else {
         load_static_file(uri, response);
     }
