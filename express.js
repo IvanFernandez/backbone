@@ -17,7 +17,7 @@ app.configure('development', function() {
 app.configure('production', function() {
 	app.use(express.errorHandler());
 });
-
+var port = process.env.PORT || 3000;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 //app.set('view options', {layout: false});
@@ -31,7 +31,9 @@ app.get('/', function(req,res){
 	res.render('root');
 });
 
-app.listen(3000);
+app.listen(port);
+sys.puts("Server running at http://localhost:" + port + "/");
+
 
 
 
