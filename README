@@ -9,5 +9,5 @@ Usage:
 
 2) Express.js + Jade + Backbone.js
 - node express.js
-- open http://localhost:4000/
+- open http://localhost:3000/
 - search a word in twitter
