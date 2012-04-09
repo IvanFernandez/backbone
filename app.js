@@ -1,4 +1,4 @@
-var port = (process.env.VMC_APP_PORT || 3000);
+var port = (process.env.VMC_APP_PORT || process.env.PORT || 3000);
 //var host = (process.env.VCAP_APP_HOST || 'localhost');
 
 var express = require('express'),
