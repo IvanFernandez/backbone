@@ -4,6 +4,7 @@
   "dependencies": {
  	"pg": "0.5.4",
   	"express": "latest",
-  	"jade" : "0.22.1"
+  	"jade" : "0.22.1",
+  	"multipart": "latest"
   }
 }
