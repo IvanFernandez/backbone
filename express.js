@@ -1,5 +1,6 @@
 var express = require('express'),
-    sys = require("sys");
+    sys = require("sys"),
+    multipart = require('multipart');
 
 var app = express.createServer();
 
@@ -26,11 +27,16 @@ app.set('view engine', 'jade');
 //app.set('view options', {layout: true, locals: { scripts: ['no.js'] }});
 
 app.get('/', function(req,res){
-	/*res.render(__dirname + '/views/' + 'root', {
-		scripts: ['no.js']
+	/*res.render(__dirname + '/views', {
+		scripts: ['/static/js/App.js']
 	});*/
-	res.render('root');
+	res.render('index');
 });
+
+app.get('/photos/new', function(req, res) {
+	console.log('PETICION ...')
+    res.render('photos/new');
+  });
 
 app.listen(port);
 sys.puts("Server running at http://localhost:" + port + "/");

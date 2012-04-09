@@ -3,7 +3,7 @@ $(function() {
     
     var Tweets = Backbone.Collection.extend({
         model: Tweet,
-        url: 'http://search.twitter.com/search.json?q=NYC&callback=?',
+        url: 'http://search.twitter.com/search.json?q=Node.js&callback=?',
         parse: function(response) {
             console.log('parsing ...')
             return response.results;
@@ -28,7 +28,7 @@ $(function() {
             this.render();
         },
         doSearch: function() {
-            var subject = $('#search').val() || 'NYC';
+            var subject = $('#search').val() || 'Node.js';
             this.tweets.url = 'http://search.twitter.com/search.json?q=' + subject + '&callback=?';
             this.tweets.fetch();
         },

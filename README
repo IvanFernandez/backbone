@@ -7,7 +7,11 @@ Usage:
 - open http://localhost:3000/index.html
 - search a word in twitter
 
-2) Express.js + Jade + Backbone.js
+2) Express.js + Jade + Backbone.js + Less
 - node express.js
 - open http://localhost:3000/
 - search a word in twitter
+
+3) CoffeeScript
+- (coffee --compile --watch .&); nodemon server.js
+- open http://localhost:4000/

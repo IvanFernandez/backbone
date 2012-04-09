@@ -1,0 +1,37 @@
+/* LESS mixin error with (optional) argument @borderWidth which defaults to 2px if not specified */
+
+@blue_twitter: #04BFBF;
+@red: #F00000;
+@blue: #00000F;
+@pastel_yellow: #F7E967;
+@pastel_green: #A9CF54;
+
+
+
+.border-radius(@values) {
+  -webkit-border-radius: @values;
+     -moz-border-radius: @values;
+        border-radius: @values;
+}
+
+
+.border(@borderWidth: 2px) {
+  border: @borderWidth solid #F00;
+  padding: 3+4px;
+}
+ 
+body {
+  .border(3px);
+  border-color: #000;
+  background: darken(@pastel_green, 5%);
+  .border-radius(10px);
+}
+
+b {
+  color: @pastel_yellow + 1;
+}
+
+li {
+  list-style-type: none;
+  font-color: mixin(@red, @blue);
+}
