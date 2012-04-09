@@ -1,4 +1,4 @@
-//var port = (process.env.VMC_APP_PORT || 3000);
+var port = (process.env.VMC_APP_PORT || 3000);
 //var host = (process.env.VCAP_APP_HOST || 'localhost');
 
 var express = require('express'),
@@ -22,7 +22,7 @@ app.configure('development', function() {
 app.configure('production', function() {
 	app.use(express.errorHandler());
 });
-var port = process.env.PORT || 3000;
+//var port = process.env.PORT || 3000;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 //app.set('view options', {layout: false});
