@@ -22,9 +22,10 @@ https://devcenter.heroku.com/articles/nodejs
 heroku create --stack cedar
 git push heroku master
 heroku ps:scale web=1
+http://tweegle.herokuapp.com/
 
 Upload to Cloud Foundry:
 http://blog.mongodb.org/post/6587009156/cloudfoundry-mongodb-and-nodejs
 vmc login
 vmc push || vmc upndate app_name
-http://tweets4search.cloudfoundry.com/
+http://tweegle.cloudfoundry.com/
