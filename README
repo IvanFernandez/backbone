@@ -2,15 +2,17 @@ Simple Backbone Twitter application
 
 Usage:
 
-1) Node.js server + Backbone.js
+1) Express.js + Backbone.js + Jade +  Less
+- node app.js
+- open http://localhost:3000/
+- search a word in twitter
+
+
+2) Node.js server + Backbone.js
 - node node.js
 - open http://localhost:3000/index.html
 - search a word in twitter
 
-2) Express.js + Backbone.js + Jade +  Less
-- node app.js
-- open http://localhost:3000/
-- search a word in twitter
 
 3) CoffeeScript
 - (coffee --compile --watch .&); nodemon server.js
