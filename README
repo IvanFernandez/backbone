@@ -33,3 +33,5 @@ vmc push || vmc upndate app_name
 http://tweegle.cloudfoundry.com/
 
 You need to modify static/js/App.js with your own Yahoo and CloudMade keys.
+
+.
