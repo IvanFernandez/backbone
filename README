@@ -31,3 +31,5 @@ http://blog.mongodb.org/post/6587009156/cloudfoundry-mongodb-and-nodejs
 vmc login
 vmc push || vmc upndate app_name
 http://tweegle.cloudfoundry.com/
+
+You need to modify static/js/App.js with your own Yahoo and CloudMade keys.

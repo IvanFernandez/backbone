@@ -1,6 +1,7 @@
 /* LESS mixin error with (optional) argument @borderWidth which defaults to 2px if not specified */
 
-@blue_twitter: #04BFBF;
+@blue_twitter: #C0DEED;
+@deepblue_twitter: #8EC1DA;
 @red: #F00000;
 @blue: #00000F;
 @pastel_yellow: #F7E967;
@@ -19,19 +20,86 @@
   border: @borderWidth solid #F00;
   padding: 3+4px;
 }
- 
+body {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+}
+/*
 body {
   .border(3px);
   border-color: #000;
   background: darken(@pastel_green, 5%);
   .border-radius(10px);
 }
-
+*/
 b {
-  color: @pastel_yellow + 1;
+  /*color: @pastel_yellow + 1;*/
 }
 
 li {
   list-style-type: none;
   font-color: mixin(@red, @blue);
+  height: 50px;
+}
+
+input {
+  .border-radius(10px);
+  color: #ccc;
+  font-size: 1.5em;
+  width: 300px; 
+  height: 40px;
+  padding: 3px;
+}
+
+#overlay {
+    position: absolute;
+    width: 100% ;
+    height: 100px;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: #000; display: none; text-align: center;
+}
+#overlay a {
+      font-size: 130% ;
+      font-weight: bold;
+}
+
+.shadow {
+  font-size: 3em;
+  text-align: center;
+  color: #666;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  }
+
+.radial-gradient {
+  background-image: -webkit-gradient(radial,center center, 1, center center, 900, from(@blue_twitter), to(@deepblue_twitter));
+}
+
+.ui-progressbar-value { 
+  background-image: url(../images/ajax-loader.gif); 
+}
+
+.center {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tweeter_photo {
+  float: left;
+  padding: 1px;
+}
+
+#map {
+    height: 300px;
+    width: 500px;
+        margin: 0 auto;
+}
+
+#cm-example {
+    height: 300px;
+    width: 300px;
+
 }

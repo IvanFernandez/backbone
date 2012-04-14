@@ -3,7 +3,8 @@ var port = (process.env.VMC_APP_PORT || process.env.PORT || 3000);
 
 var express = require('express'),
     sys = require("sys"),
-    multipart = require('multipart');
+    multipart = require('multipart'),
+    redis = require("redis");
 
 var app = express.createServer();
 
@@ -25,14 +26,8 @@ app.configure('production', function() {
 //var port = process.env.PORT || 3000;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-//app.set('view options', {layout: false});
-
-//app.set('view options', {layout: true, locals: { scripts: ['no.js'] }});
 
 app.get('/', function(req,res){
-	/*res.render(__dirname + '/views', {
-		scripts: ['/static/js/App.js']
-	});*/
 	res.render('index');
 });
 
