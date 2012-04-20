@@ -60,6 +60,14 @@ app.listen(port, function () {
 var io = sio.listen(app)
   , nicknames = {};
 
+
+// assuming io is the Socket.IO server object
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
+
 var user = 0;
 io.sockets.on('connection', function (socket) {
   user = user + 1;
