@@ -6,8 +6,9 @@
   	"express": "latest",
   	"jade" : "0.22.1",
   	"multipart": "latest",
-  	//"redis":"latest",
   	"socket.io":"latest",
   	"redis-url": "0.1.0"
   }
-}
+
+
+  	//"redis":"latest",
