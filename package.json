@@ -8,4 +8,5 @@
   	"multipart": "latest",
   	"socket.io":"latest",
   	"redis-url": "0.1.0"
-  }
+	}
+}
