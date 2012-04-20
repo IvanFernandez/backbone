@@ -9,12 +9,14 @@ var express = require('express'),
 
 
 var client = redis.createClient();
+var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
-client.on("error", function (err) {
+
+/*client.on("error", function (err) {
     console.log("Error " + err);
 });
 
-client.set("string key", "string val", redis.print);
+client.set("string key", "string val", redis.print);*/
 
 var app = express.createServer();
 
@@ -39,7 +41,7 @@ app.set('view engine', 'jade');
 
 app.get('/', function(req,res){
 	res.render('index');
-	client.sadd('aaa', new Date());
+	//client.sadd('aaa', new Date());
 	/*client.set("string key", "string val", function(redis){
 		console.log("Redis " + redis)
 	});*/
@@ -73,7 +75,8 @@ io.sockets.on('connection', function (socket) {
   user = user + 1;
   socket.user = user;
   socket.emit('user', user);
-  client.sadd('users', user);
+  redis.sadd('users', user);
+  //client.sadd('users', user);
   var usersss = client.multi().smembers('users').exec(function (err, replies) {
         console.log("MULTI got " + replies.length + " replies");
         replies.forEach(function (reply, index) {
@@ -83,8 +86,10 @@ io.sockets.on('connection', function (socket) {
         //socket.broadcast.emit('nusers', user);
   });
   socket.on('disconnect', function () {
-  	client.srem('users',socket.user);
-  	client.multi().smembers('users').exec(function (err, replies) {
+    redis.srem('users',socket.user);
+    redis.multi().smembers('users').exec(function (err, replies) {
+  	//client.srem('users',socket.user);
+  	//client.multi().smembers('users').exec(function (err, replies) {
         console.log("MULTI got " + replies.length + " replies");
         replies.forEach(function (reply, index) {
             console.log("Reply " + index + ": " + reply.toString());
