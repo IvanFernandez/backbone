@@ -4,11 +4,11 @@ var port = (process.env.VMC_APP_PORT || process.env.PORT || 3000);
 var express = require('express'),
     sys = require("sys"),
     multipart = require('multipart'),
-    redis = require("redis"),
+    //redis = require("redis"),
     sio = require("socket.io");
 
 
-var client = redis.createClient();
+//var client = redis.createClient();
 var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 
@@ -77,7 +77,8 @@ io.sockets.on('connection', function (socket) {
   socket.emit('user', user);
   redis.sadd('users', user);
   //client.sadd('users', user);
-  var usersss = client.multi().smembers('users').exec(function (err, replies) {
+  //var usersss = client.multi().smembers('users').exec(function (err, replies) {
+  var usersss = redis.multi().smembers('users').exec(function (err, replies) {
         console.log("MULTI got " + replies.length + " replies");
         replies.forEach(function (reply, index) {
             console.log("Reply " + index + ": " + reply.toString());
