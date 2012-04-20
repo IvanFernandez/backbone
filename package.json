@@ -9,6 +9,3 @@
   	"socket.io":"latest",
   	"redis-url": "0.1.0"
   }
-
-
-  	//"redis":"latest",
