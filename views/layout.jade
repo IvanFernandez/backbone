@@ -6,7 +6,27 @@ html
     script(src='http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js')
     script(src='http://documentcloud.github.com/underscore/underscore.js')
     script(src='http://documentcloud.github.com/backbone/backbone.js')
+    script(src='/socket.io/socket.io.js')
+    script
+      // socket.io specific code
+      var socket = io.connect();
+
+      socket.on('connect', function () {
+         console.log('me he conectado');
+      });
+
+      socket.on('user', function (msg) {
+        console.log('user ' + msg);
+        $('#user').html('User ' + msg);
+      });
+      socket.on('nusers', function (nusers,users) {
+        $('#nusers').html('Number of users: ' + nusers);
+        $('#list').html('Active users: ' + users);
+      });
     title My example page
   body
+    #nusers
+    #user
     block content
       #container!= body
+    #list
