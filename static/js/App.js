@@ -54,7 +54,7 @@ $(function() {
             });
 
             this.map = new L.Map('map');
-            var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/[600a3a04a61c426e865a90ec8fae7237]/997/256/{z}/{x}/{y}.png');
+            var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/600a3a04a61c426e865a90ec8fae7237/997/256/{z}/{x}/{y}.png');
             var center = new L.LatLng(25,0);
             this.map.setView(center, 1).addLayer(cloudmade);
             this.render();
