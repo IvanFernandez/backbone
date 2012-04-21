@@ -15,7 +15,7 @@ $(function() {
 
     var _Location = Backbone.Collection.extend({
         model: Loc,
-        url: 'http://where.yahooapis.com/v1/places.q("default_string")?format=json&appid=[yahoo_api]',
+        url: 'http://where.yahooapis.com/v1/places.q("Spain")?format=json&appid=[foOF4CzV34EFIIW4gz1lx0Ze1em._w1An3QyivRalpXCK9sIXT5de810JWold3ApkdMdCrc-%22]',
         parse: function(response) {
             //console.log('parsing location ...')
             return response.places.place;
@@ -54,7 +54,7 @@ $(function() {
             });
 
             this.map = new L.Map('map');
-            var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/[cloudmade_api]/997/256/{z}/{x}/{y}.png');
+            var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/[600a3a04a61c426e865a90ec8fae7237]/997/256/{z}/{x}/{y}.png');
             var center = new L.LatLng(25,0);
             this.map.setView(center, 1).addLayer(cloudmade);
             this.render();
@@ -79,7 +79,7 @@ $(function() {
                 collection.each(function(value) {
                     var location = value.get("location");
                     this.loc = new _Location();
-                    this.loc.url = 'http://where.yahooapis.com/v1/places.q('+ location + ')?format=json&appid=[yahoo_api]',
+                    this.loc.url = 'http://where.yahooapis.com/v1/places.q('+ location + ')?format=json&appid=[foOF4CzV34EFIIW4gz1lx0Ze1em._w1An3QyivRalpXCK9sIXT5de810JWold3ApkdMdCrc-%22]',
                     this.loc.fetch();
                     this.loc.bind('reset', function(collection) {
                         collection.each(function(value) {
