@@ -8,5 +8,9 @@
   	"multipart": "latest",
   	"socket.io":"latest",
   	"redis-url": "0.1.0"
-	}
+	},
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
 }
