@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
  	"pg": "0.5.4",
-  	"express": "latest",
+  	"express": "2.x.x",
   	"jade" : "0.22.1",
   	"multipart": "latest",
   	"socket.io":"latest",

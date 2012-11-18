@@ -18,8 +18,8 @@ var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 client.set("string key", "string val", redis.print);*/
 
-//var app = express.createServer();
-var app = express();
+var app = express.createServer();
+//var app = express();
 
 app.configure(function() {
 	//app.use(express.logger());
